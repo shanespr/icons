@@ -1,0 +1,25 @@
+{
+  "name": "css-icons-library",
+  "version": "0.1.0",
+  "description": "A CSS icon library generated from local SVG files.",
+  "license": "MIT",
+  "type": "module",
+  "style": "dist/icons.css",
+  "files": [
+    "dist",
+    "src",
+    "Icons",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build-icons.mjs"
+  },
+  "keywords": [
+    "css",
+    "icons",
+    "svg",
+    "icon-library",
+    "jsdelivr",
+    "cdn"
+  ]
+}
