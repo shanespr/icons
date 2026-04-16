@@ -5,6 +5,7 @@ const root = resolve(process.cwd());
 const iconsRoot = resolve(root, "Icons");
 const srcDir = resolve(root, "src");
 const distDir = resolve(root, "dist");
+const PREFIX = "ss";
 
 if (!existsSync(iconsRoot)) {
   console.error("Missing Icons directory. Expected ./Icons");
@@ -75,16 +76,16 @@ for (const style of styleDirs) {
       : baseName;
 
     const iconSlug = slugify(baseWithoutStyle);
-    const className = `ci-${style.slug}-${iconSlug}`;
+    const className = `${PREFIX}-${style.slug}-${iconSlug}`;
 
     const relFromDist = toPosixPath(relative(distDir, svgAbsPath));
-    const ruleValue = `--ci:url("${relFromDist}")`;
+    const ruleValue = `--${PREFIX}:url("${relFromDist}")`;
 
     cssRules.push(`.${className}{${ruleValue}}`);
     classToPath.set(className, relFromDist);
 
     if (style.slug === "bold") {
-      const defaultClassName = `ci-${iconSlug}`;
+      const defaultClassName = `${PREFIX}-${iconSlug}`;
       if (!classToPath.has(defaultClassName)) {
         cssRules.push(`.${defaultClassName}{${ruleValue}}`);
         classToPath.set(defaultClassName, relFromDist);
@@ -104,32 +105,32 @@ const banner = `/*\n * CSS Icons\n * Auto-generated from ./Icons\n * Run: npm ru
 
 const css = `${banner}
 :root{
-  --ci-size:1em;
+  --${PREFIX}-size:1em;
 }
 
-.ci{
+.${PREFIX}{
   display:inline-block;
-  inline-size:var(--ci-size);
-  block-size:var(--ci-size);
+  inline-size:var(--${PREFIX}-size);
+  block-size:var(--${PREFIX}-size);
   vertical-align:-0.125em;
   background-color:currentColor;
-  -webkit-mask:var(--ci) center / contain no-repeat;
-  mask:var(--ci) center / contain no-repeat;
+  -webkit-mask:var(--${PREFIX}) center / contain no-repeat;
+  mask:var(--${PREFIX}) center / contain no-repeat;
   flex-shrink:0;
 }
 
 ${cssRules.join("\n")}
 
-.ci-xs{--ci-size:0.75em}
-.ci-sm{--ci-size:0.875em}
-.ci-lg{--ci-size:1.25em}
-.ci-xl{--ci-size:1.5em}
+.${PREFIX}-xs{--${PREFIX}-size:0.75em}
+.${PREFIX}-sm{--${PREFIX}-size:0.875em}
+.${PREFIX}-lg{--${PREFIX}-size:1.25em}
+.${PREFIX}-xl{--${PREFIX}-size:1.5em}
 
-.ci-spin{
-  animation:ci-spin 1s linear infinite;
+.${PREFIX}-spin{
+  animation:${PREFIX}-spin 1s linear infinite;
 }
 
-@keyframes ci-spin{
+@keyframes ${PREFIX}-spin{
   to{transform:rotate(360deg)}
 }
 `;

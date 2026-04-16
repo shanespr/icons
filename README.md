@@ -4,32 +4,32 @@ This project turns your local SVG set in `Icons/` into a CSS icon library you ca
 
 ## How it works
 
-- Base icon class: `ci`
-- Style class format: `ci-<style>-<icon>`
-- For `bold` icons, a short alias is also generated: `ci-<icon>`
+- Base icon class: `ss`
+- Style class format: `ss-<style>-<icon>`
+- For `bold` icons, a short alias is also generated: `ss-<icon>`
 
 Examples:
 
 ```html
-<i class="ci ci-bold-airplane"></i>
-<i class="ci ci-airplane"></i>
-<i class="ci ci-bold-google-chrome-logo"></i>
+<i class="ss ss-bold-airplane"></i>
+<i class="ss ss-airplane"></i>
+<i class="ss ss-bold-google-chrome-logo"></i>
 ```
 
 ## Customize color and size
 
 ```html
-<i class="ci ci-airplane" style="color:#0f172a;font-size:28px"></i>
-<i class="ci ci-warning ci-lg" style="color:#ef4444"></i>
-<i class="ci ci-circle-notch ci-xl ci-spin"></i>
+<i class="ss ss-airplane" style="color:#0f172a;font-size:28px"></i>
+<i class="ss ss-warning ss-lg" style="color:#ef4444"></i>
+<i class="ss ss-circle-notch ss-xl ss-spin"></i>
 ```
 
 Included size helpers:
 
-- `ci-xs`
-- `ci-sm`
-- `ci-lg`
-- `ci-xl`
+- `ss-xs`
+- `ss-sm`
+- `ss-lg`
+- `ss-xl`
 
 ## Build
 
